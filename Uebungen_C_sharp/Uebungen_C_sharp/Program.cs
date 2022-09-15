@@ -73,14 +73,33 @@ namespace Uebungen_C_sharp
             {
                 Console.WriteLine(sub);
             }
+           
+
+            //wenn text abc beinhaltet dann true
+            Console.WriteLine("Bitte gebe einen Text ein!");
+
+            string text15 = Console.ReadLine();
+
+            Console.WriteLine(text15.Contains("abc"));
+            
+
+            //ganzer text in caps
+            Console.WriteLine("Bitte gebe einen Text ein!");
+            string text87 = Console.ReadLine();
+
+            Console.WriteLine(text87.ToUpper());
             */
 
-            //
-            Console.WriteLine("Bitte gebe einen Text ein!");
-            string text15 = Console.ReadLine();
-            Console.WriteLine(text15.Contains("abc"));
+            //for schleife
+            Console.WriteLine("gib eine Zahl ein:");
 
-
+            int i = Convert.ToInt32(Console.ReadLine());
+            int sum = 0;
+            for (int j = 0; i > sum; j ++)
+            {
+                sum = sum + j;
+                Console.WriteLine(sum);
+            }
 
 
             Console.ReadLine();
