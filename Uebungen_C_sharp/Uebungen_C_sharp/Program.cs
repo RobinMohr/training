@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SqlTypes;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -54,13 +55,24 @@ namespace Uebungen_C_sharp
             Console.WriteLine("Gebe bitte einen Text ein:");
             string text6 = Console.ReadLine();
             Console.WriteLine(text6.PadRight(30, 'y'));
-            */
+            
 
-            //
+            //leerzeichen vor und nach dem text entfernen
             Console.WriteLine("Gebe bitte einen Text ein mit ein paar Leerzeichen vor und nach dem Text!");
             string text7 = Console.ReadLine();
             Console.WriteLine(text7.Trim());
+            */
 
+            //
+            Console.WriteLine("Bitte gebe einen Text mit Semicolons ein!");
+            string text99 = Console.ReadLine();
+
+            string[] subs = text99.Split(';');
+
+            foreach (var sub in subs)
+            {
+                Console.WriteLine(sub);
+            }
 
 
 
