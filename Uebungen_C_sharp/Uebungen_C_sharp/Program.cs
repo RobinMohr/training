@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlTypes;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -88,7 +89,7 @@ namespace Uebungen_C_sharp
             string text87 = Console.ReadLine();
 
             Console.WriteLine(text87.ToUpper());
-            */
+            
 
             //for schleife
             Console.WriteLine("gib eine Zahl ein:");
@@ -100,6 +101,15 @@ namespace Uebungen_C_sharp
                 sum = sum + j;
                 Console.WriteLine(sum);
             }
+            */
+
+            //
+            int j = Convert.ToInt32(Console.ReadLine());
+            
+            for (int i = 0; j > i; j--)
+            {
+                Console.WriteLine(j);
+            } 
 
 
             Console.ReadLine();
