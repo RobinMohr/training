@@ -10,8 +10,10 @@ namespace Uebungen_C_sharp
     {
         static void Main(string[] args)
         {
-            int number1 = 5;
-            int number2 = 6;
+            Console.WriteLine("Bitte gib die erste Zahl ein:");
+            int number1 = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Bitte gib die zweite Zahl ein:");
+            int number2 = Convert.ToInt32(Console.ReadLine());
             int number = number1 + number2;
 
             Console.WriteLine(number);
