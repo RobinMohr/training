@@ -10,7 +10,7 @@ namespace Uebungen_C_sharp
     {
         static void Main(string[] args)
         {
-            
+            /*
             //zwei zahlen addieren
             Console.WriteLine("Bitte gib die erste Zahl ein:");
             float number1 = Convert.ToInt32(Console.ReadLine());
@@ -21,7 +21,7 @@ namespace Uebungen_C_sharp
             float number = number1 + number2;
 
             Console.WriteLine(number);
-            /*
+            
             //im text u,U mit g,G ersetzen
             Console.WriteLine("Bitte gebe einen Text ein:");
             string entry = Console.ReadLine();
@@ -39,10 +39,17 @@ namespace Uebungen_C_sharp
             string[] entries = new_entry.Split(' ');
 
             int words = entries.Length;
-            Console.WriteLine("Dein Text hat " + words + " Wörter.");    
-
-
+            Console.WriteLine("Dein Text hat " + words + " Wörter."); 
             */
+
+            //Text von links bis zu 20 stellen mit y's auffüllen
+
+            Console.WriteLine("Gebe bitte einen Text ein:");
+            string text5 = Console.ReadLine();
+            Console.WriteLine(text5.PadLeft(20, 'y'));
+
+
+
             Console.ReadLine();
         }
     }
