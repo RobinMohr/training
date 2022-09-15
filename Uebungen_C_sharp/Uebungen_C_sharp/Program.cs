@@ -61,9 +61,9 @@ namespace Uebungen_C_sharp
             Console.WriteLine("Gebe bitte einen Text ein mit ein paar Leerzeichen vor und nach dem Text!");
             string text7 = Console.ReadLine();
             Console.WriteLine(text7.Trim());
-            */
+            
 
-            //
+            //splitting a text at a semicolon
             Console.WriteLine("Bitte gebe einen Text mit Semicolons ein!");
             string text99 = Console.ReadLine();
 
@@ -73,6 +73,13 @@ namespace Uebungen_C_sharp
             {
                 Console.WriteLine(sub);
             }
+            */
+
+            //
+            Console.WriteLine("Bitte gebe einen Text ein!");
+            string text15 = Console.ReadLine();
+            Console.WriteLine(text15.Contains("abc"));
+
 
 
 
