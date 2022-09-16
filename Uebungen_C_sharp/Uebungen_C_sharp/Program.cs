@@ -14,57 +14,58 @@ namespace Uebungen_C_sharp
     {
         static void Main(string[] args)
         {
-            double zahl1 = 50;
-            double zahl2 = 5;
+            Console.WriteLine("Wie viele plätze soll die Liste haben?");
+            int i =Convert.ToInt32(Console.ReadLine());
 
-            double ergebnis = Add(zahl1, zahl2);
-            double ergebnis1 = Substrate(zahl1, zahl2);
-            double ergebnis2 = Multiply(zahl1, zahl2);
-            double ergebnis3 = Devide(zahl1, zahl2);
-            double ergebnis4 = Average(zahl1, zahl2);
+            int[] zahlen = new int[i];
+            Console.WriteLine("Gebe nun "+i+" zahlen ein:");
+
+            for (int j = 0; j < i; j++)
+            {
+                zahlen[j] = Convert.ToInt32(Console.ReadLine());
+            }
+
+            foreach (double j in zahlen)
+            {
+                Console.WriteLine(j);
+            }
+
+            double x = 0;
+            foreach (double j in zahlen)
+            {
+                 x = x + j;
+            }
             
-            Console.WriteLine(ergebnis);
-            Console.WriteLine(ergebnis1);
-            Console.WriteLine(ergebnis2);
-            Console.WriteLine(ergebnis3);
-            Console.WriteLine(ergebnis4);
+            double max = zahlen.Max();
+            double min = zahlen.Min();
+            double avg = zahlen.Average();
+
+            Console.WriteLine("max:" + max);
+            Console.WriteLine("min:" + min);
+            Console.WriteLine($"summe:{x}");
+            Console.WriteLine($"average:{x}");
+
+
+            Console.ReadKey();
+
+            Console.Clear();
+            Console.WriteLine("Wie viele zeilen soll die liste haben?");
+            int p = Convert.ToInt32(Console.ReadLine());
+
+            string[] text = new string[p];
+
+            for (int l = 0; l < p; l++)
+            {
+                text[l] = Console.ReadLine();
+            }
+            foreach (string s in text)
+            {
+                Console.WriteLine(s.Replace(' ', ';'));
+            }
+
+
 
             Console.ReadLine();
-        }
-        
-        static double Add(double z1, double z2)
-        {
-            double summe = z1 + z2;
-            return summe;
-        }
-
-        static double Substrate(double z1, double z2)
-        {
-            return z1 - z2;
-        }
-
-        static double Multiply(double z1,double z2)
-        {
-            return z1 * z2;
-        }
-
-        static double Average(double z1, double z2)
-        {
-            return (z1 + z2) / 2;
-        }
-
-        static double Devide(double z1, double z2)
-        {
-            return z1 / z2;
-        }
-
-        static List<string> Number()
-        {
-            List<string> name = new List<string>();
-            name.Add("ABBBBBBBBC");
-
-
-            return name;
         }
     }
 }
