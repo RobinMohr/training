@@ -13,76 +13,24 @@ namespace Uebungen_C_sharp
     {
         static void Main(string[] args)
         {
-            //string zahl = Convert.ToInt32(Console.ReadLine());
 
-            //switch (zahl)
-            //{
-            //    case "1":
-            //        Console.WriteLine("Die Zahl ist 1");
-            //        break;
-            //    case "2":
-            //        Console.WriteLine("Die zahl ist 2");
-            //        break;
-            //    case "5":
-            //        Console.WriteLine("Die zahl ist 5");
-            //        break;
-            //    default:
-            //        Console.WriteLine("Kein Fall tritt ein");
-            //        break;
-            //}
+            Console.WriteLine("Wie viele namen willst du eingeben?");
+            int t = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine("erste zahl:");
-            int num1 = Convert.ToInt32(Console.ReadLine());
+            List<string> names = new List<string>();
 
-            Console.WriteLine("zweite zahl:");
-            int num2 = Convert.ToInt32(Console.ReadLine());
-
-            Console.WriteLine("Was soll mit den Zahlen gemacht werden?");
-            Console.WriteLine("+ zum addieren; - zum subtrahieren");
-            Console.WriteLine("* zum multiplizieren; / zum teilen");
-            Console.WriteLine("avg um den durchschnitt zu berechnen");
-            string befehl = Console.ReadLine();
-
-            double sum = 0;
-
-            switch (befehl)
+            Console.WriteLine("bitte gebe " + t + " namen ein.");
+            for (int i = 0; i < t; i++)
             {
-                case "+":
-                    sum = num1 + num2;
-                    Console.WriteLine(num1 + " + " + num2 + " = " + sum);
-                    break;
-
-                case "-":
-                    sum = num1 - num2;
-                    Console.WriteLine(num1 + " - " + num2 + " = " + sum);
-                    break;
-
-                case "/":
-                    sum = num1 / num2;
-                    Console.WriteLine(num1 + " / " + num2 + " = " + sum);
-                    break;
-
-                case "*":
-                    sum = num1 * num2;
-                    Console.WriteLine(num1 + " * " + num2 + " = " + sum);
-                    break;
-
-                case "avg":
-                    sum = num1 + num2;
-                    double avg = sum / 2;
-                    Console.WriteLine("(" + num1 + " + " + num2 + ")" + " / 2" + " = " + avg);
-                    break;
-                default:
-                    Console.WriteLine("Du hast nicht valides eingegeben.");
-                    return;
-
-
-
+                names.Add(Console.ReadLine());
             }
 
+            for (int i = 0; i < t; i++)
+            {
+                Console.WriteLine(names[i]);
+            }
 
-
-
+            
 
 
             Console.ReadLine();
