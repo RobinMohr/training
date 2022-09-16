@@ -14,54 +14,157 @@ namespace Uebungen_C_sharp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Wie viele plätze soll die Liste haben?");
-            int i =Convert.ToInt32(Console.ReadLine());
+            int current = 10000;
+            int startwert = 10000;
+            Random random = new Random();
+            int einsatz = 10;
+            int r = 0;
+            bool spiel = true;
 
-            int[] zahlen = new int[i];
-            Console.WriteLine("Gebe nun "+i+" zahlen ein:");
-
-            for (int j = 0; j < i; j++)
+            do
             {
-                zahlen[j] = Convert.ToInt32(Console.ReadLine());
-            }
-
-            foreach (double j in zahlen)
-            {
-                Console.WriteLine(j);
-            }
-
-            double x = 0;
-            foreach (double j in zahlen)
-            {
-                 x = x + j;
-            }
-            
-            double max = zahlen.Max();
-            double min = zahlen.Min();
-            double avg = zahlen.Average();
-
-            Console.WriteLine("max:" + max);
-            Console.WriteLine("min:" + min);
-            Console.WriteLine($"summe:{x}");
-            Console.WriteLine($"average:{x}");
+                Console.Clear();
+                Console.WriteLine("Setzt du auf gerade(0) oder ungerade(1)?");
+                int guess = Convert.ToInt32(Console.ReadLine());
+                int before = current;
+                int k = random.Next(0, 36);
 
 
-            Console.ReadKey();
 
-            Console.Clear();
-            Console.WriteLine("Wie viele zeilen soll die liste haben?");
-            int p = Convert.ToInt32(Console.ReadLine());
+                switch (guess)
+                {
+                    case 0:
+                        if (current < einsatz)
+                        {
+                            Console.Clear();
+                            Console.WriteLine("Du bist Pleite...");
+                            spiel = false;
+                            break;
+                        }
+                        else if (current > einsatz)
+                        {
 
-            string[] text = new string[p];
+                            if ((k % 2 != 0) && k != 0)
+                            {
+                                Console.WriteLine("Du hast die Runde gewonnen:");
+                                current = current + einsatz * 2;
+                                einsatz = einsatz * 2;
 
-            for (int l = 0; l < p; l++)
-            {
-                text[l] = Console.ReadLine();
-            }
-            foreach (string s in text)
-            {
-                Console.WriteLine(s.Replace(' ', ';'));
-            }
+                                if (current >= 10000)
+                                {
+                                    einsatz = 10;
+                                }
+                            }
+
+                            else if ((k % 2 == 0) && k != 0)
+                            {
+                                Console.WriteLine("Du hast die Runde verloren.");
+                                if (current >= 10000)
+                                {
+                                    current = current - einsatz * 2;
+                                    einsatz = einsatz * 2;
+                                }
+                                else if (k < 10000)
+                                {
+                                    int Gesamtverlust = startwert - current;
+                                    current = current - Gesamtverlust - Gesamtverlust;
+
+                                }
+                            }
+                            else if (k == 0)
+                            {
+                                Console.WriteLine("Du hast weder gewonnen noch verloren.");
+                                break;
+                            }
+                            
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Du hast die Runde verloren");
+                            if (k > 10000)
+                            {
+                                einsatz = einsatz * 2;
+                            }
+                            break;
+                        }
+                        break;
+
+                    case 1:
+                        if (current < einsatz)
+                        {
+                            Console.Clear();
+                            Console.WriteLine("Du bist Pleite...");
+                            spiel = false;
+                            break;
+                        }
+                        else if (current > einsatz)
+                        {
+
+                            if ((k % 2 == 0) && k != 0)
+                            {
+                                Console.WriteLine("Du hast die Runde gewonnen:");
+                                current = current + einsatz * 2;
+                                einsatz = einsatz * 2;
+
+                                if (current >= 10000)
+                                {
+                                    einsatz = 10;
+                                }
+                            }
+
+                            else if ((k % 2 != 0) && k != 0)
+                            {
+                                Console.WriteLine("Du hast die Runde verloren.");
+                                if (current >= 10000)
+                                {
+                                    current = current - einsatz * 2;
+                                    einsatz = einsatz * 2;
+                                }
+                                else if (k < 10000)
+                                {
+                                    int Gesamtverlust = startwert - current;
+                                    current = current - Gesamtverlust - Gesamtverlust;
+
+                                }
+                            }
+                            else if (k == 0)
+                            {
+                                Console.WriteLine("Du hast weder gewonnen noch verloren.");
+                                break;
+                            }
+
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Du hast die Runde verloren");
+                            if (k > 10000)
+                            {
+                                einsatz = einsatz * 2;
+                            }
+                            break;
+                        }
+                        break;
+
+                }
+                if (einsatz >= 1000)
+                {
+                    einsatz = 1000;
+                }
+
+                r++;
+
+                Console.WriteLine($"du hattest letzte runde {before} dollar");
+                Console.WriteLine($"du hast jetzt {current} dollar");
+                Console.WriteLine($"du wirst nächste Runde {einsatz} dollar einsetzen");
+                Console.WriteLine($"du hast schon {r} Runden gespielt");
+                Console.ReadKey();
+
+            } while (spiel);
+
+
+
 
 
 
