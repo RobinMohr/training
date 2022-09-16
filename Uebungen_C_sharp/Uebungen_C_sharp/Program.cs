@@ -237,6 +237,43 @@ namespace Uebungen_C_sharp
                 Console.WriteLine(oi);
             }
 
+            int b = 1000000;
+            for (int a = 0; a < i; a++)
+            {
+                if (zahlen[a] < b)
+                {
+                    b = zahlen[a];
+                }
+            }
+            Console.WriteLine("minimum: " + b);
+
+
+            int c = 0;
+            for (int a = 0; a < i; a++)
+            {
+                if (zahlen[a] > c)
+                {
+                    c = zahlen[a];
+                }
+            }
+            Console.WriteLine("maximum: " + c);
+
+
+            int sum = 0;
+            foreach(int l in zahlen)
+            {
+                sum = sum + l;
+            }
+            int average1 = sum / i;
+            Console.WriteLine("Der Durchschnitt ist: " + average1);
+
+
+
+
+
+
+
+            /*
             double min = zahlen.Min();
             Console.WriteLine("Der nniedrigste Wert ist " + min + ".");
 
@@ -245,7 +282,7 @@ namespace Uebungen_C_sharp
 
             double avg = zahlen.Average();
             Console.WriteLine("Der Durchschnittswert ist " + avg + ".");
-
+            */
 
 
 
