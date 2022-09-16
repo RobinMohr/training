@@ -14,18 +14,48 @@ namespace Uebungen_C_sharp
     {
         static void Main(string[] args)
         {
+            double zahl1 = 50;
+            double zahl2 = 5;
 
-            Console.WriteLine("Wir holen jetzt eine Zahl aus Number");
-            List<string> names = Number();
-            foreach(var name in names)
-            {
-                Console.WriteLine(name);
-            }
+            double ergebnis = Add(zahl1, zahl2);
+            double ergebnis1 = Substrate(zahl1, zahl2);
+            double ergebnis2 = Multiply(zahl1, zahl2);
+            double ergebnis3 = Devide(zahl1, zahl2);
+            double ergebnis4 = Average(zahl1, zahl2);
             
-            
-
+            Console.WriteLine(ergebnis);
+            Console.WriteLine(ergebnis1);
+            Console.WriteLine(ergebnis2);
+            Console.WriteLine(ergebnis3);
+            Console.WriteLine(ergebnis4);
 
             Console.ReadLine();
+        }
+        
+        static double Add(double z1, double z2)
+        {
+            double summe = z1 + z2;
+            return summe;
+        }
+
+        static double Substrate(double z1, double z2)
+        {
+            return z1 - z2;
+        }
+
+        static double Multiply(double z1,double z2)
+        {
+            return z1 * z2;
+        }
+
+        static double Average(double z1, double z2)
+        {
+            return (z1 + z2) / 2;
+        }
+
+        static double Devide(double z1, double z2)
+        {
+            return z1 / z2;
         }
 
         static List<string> Number()
@@ -38,197 +68,6 @@ namespace Uebungen_C_sharp
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
