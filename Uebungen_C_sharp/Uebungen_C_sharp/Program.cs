@@ -19,44 +19,40 @@ namespace Uebungen_C_sharp
     {
         static void Main(string[] args)
         {
-
-            Console.WriteLine("Wie viele Häuser willst du hinzufügen?");
-            int amount = Convert.ToInt32(Console.ReadLine());
-
-            List<House> houses = new List<House>();
-
+            Triangle d = new Triangle(2, 4, 10);
             
+            Circle c = new Circle(5);
+          
+            Rectangle r = new Rectangle(10, 20);
+           
+            List<IGeometry> geometries = new List<IGeometry>();
+            geometries.Add(r);
+            geometries.Add(c);
+            geometries.Add(d);
 
-            for (int i = 0; i < amount; i++)
+            foreach (IGeometry g in geometries)
             {
-                houses.Add(House.UserInformation());
+                Console.WriteLine($"Mein {g.GetType().Name} hat eine Fläche von {g.Flaeche()} " +
+                    $"und Umfang von {g.Umfang()}");
+                    
             }
-            
-            foreach (House house in houses)
+            Vehicle ve = new Vehicle();
+
+            List<Vehicle> fahrzeuge = new List<Vehicle>();
+            fahrzeuge.Add(new Motorcycles(523, "BMW","GSXR 2000", "3.0", 3000, "Blau", 2));
+            fahrzeuge.Add(new Car(123, "VW", "Golf V", "2.0 TDI", 1900, "Rot", 4));
+
+
+            foreach (Vehicle v in fahrzeuge)
             {
-                house.House_Information();
-            }
-            
-
-            Console.WriteLine("Möchtest du die Farbe von deinem Haus ändern? (y/n) ");
-            string color = Console.ReadLine();
-
-            if (color == "y")
-            {
-                Console.WriteLine("");
-                Console.WriteLine("Bei welchen Haus willst du die Farbe ändern?");
-                int num = Convert.ToInt32(Console.ReadLine());
-
-                Console.WriteLine("Welche Farbe soll das Haus haben?");
-                houses[num].Color_Change(Console.ReadLine());
-
-                Console.WriteLine("");
-
-                foreach (House house in houses)
-                {
-                    house.House_Information();
-                }
-
+                v.Starten();
+                v.beschleunigen();
+                v.beschleunigen();
+                v.bremsen();
+                v.Starten();
+                v.beschleunigen();
+                v.bremsen();
+                v.bremsen();
             }
 
             Console.ReadKey();
