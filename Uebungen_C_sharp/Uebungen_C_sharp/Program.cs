@@ -19,26 +19,49 @@ namespace Uebungen_C_sharp
     {
         static void Main(string[] args)
         {
-            
-            List<Car> cars = new List<Car>();
 
-            Console.WriteLine("Wie viele Autos möchtest du hinzufügen?");
+            Console.WriteLine("Wie viele Häuser willst du hinzufügen?");
             int amount = Convert.ToInt32(Console.ReadLine());
+
+            List<House> houses = new List<House>();
+
             
+
             for (int i = 0; i < amount; i++)
             {
-                cars.Add(Car.AskUserForInformation());
+                houses.Add(House.UserInformation());
             }
-
-            Console.Clear();
-            foreach (Car c in cars)
+            
+            foreach (House house in houses)
             {
-                c.PrintCarInformation();
+                house.House_Information();
+            }
+            
+
+            Console.WriteLine("Möchtest du die Farbe von deinem Haus ändern? (y/n) ");
+            string color = Console.ReadLine();
+
+            if (color == "y")
+            {
+                Console.WriteLine("");
+                Console.WriteLine("Bei welchen Haus willst du die Farbe ändern?");
+                int num = Convert.ToInt32(Console.ReadLine());
+
+                Console.WriteLine("Welche Farbe soll das Haus haben?");
+                houses[num].Color_Change(Console.ReadLine());
+
+                Console.WriteLine("");
+
+                foreach (House house in houses)
+                {
+                    house.House_Information();
+                }
+
             }
 
             Console.ReadKey();
         }
-            
+
     }
 }
 
