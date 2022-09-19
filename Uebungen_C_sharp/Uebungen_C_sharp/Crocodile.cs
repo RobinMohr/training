@@ -18,15 +18,6 @@ namespace Uebungen_C_sharp
             Hunger = hunger;
         }
 
-        public Crocodile()
-        {
-            Furr = false;
-            Age = 12;
-            Height = 4.3;
-            Life_Span = 70;
-            Weight = 450;
-            Hunger = 50;
-        }
         public void Eating(int food)
         {
             

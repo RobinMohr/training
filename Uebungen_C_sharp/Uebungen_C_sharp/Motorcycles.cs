@@ -17,17 +17,35 @@ namespace Uebungen_C_sharp
             Weight = weight;
             Hunger = hunger;
         }
-        public Lion()
+        public void Eating(int food)
         {
-            Furr = true;
-            Age = 4;
-            Height = 1.2;
-            Life_Span = 14;
-            Weight = 190;
-            Hunger = 50;
-        }
-        public void Eating()
-        {
+            if (food > 15)
+            {
+                Console.WriteLine("Löwen scheinst du besonders gern zu haben, dein löwe bekommt einen ganzen Büffel zu essen.");
+                Hunger += food;
+            }
+            else if (food > 10)
+            {
+                Console.WriteLine("Dein Löwe hat soeben ein ");
+                Hunger += food;
+            }
+
+            else if (food >= 5)
+            {
+                Console.WriteLine("Nom Nom Nom, Dein Krokodil hat ein saftiges stück Fleisch gegessen.");
+                Hunger += food;
+
+            }
+            else if (food > 0)
+            {
+                Console.WriteLine("Dein Krokodil hat ein altes stück Fleisch gegessen.");
+                Hunger += food;
+
+            }
+            else if (food == 0)
+            {
+                Console.WriteLine("Dein Krokodil ist Traurig, weil es nichts zu essen bekommen hat.");
+            }
 
         }
         public void Drinking()

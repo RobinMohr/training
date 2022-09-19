@@ -19,18 +19,24 @@ namespace Uebungen_C_sharp
     {
         static void Main(string[] args)
         {
-            Crocodile c = new Crocodile();
-            Lion l = new Lion();
-            Elephant e = new Elephant();
+            Crocodile c = new Crocodile(false, 12, 4.3, 70, 450, 50);
+            Lion l = new Lion(true, 4, 1.2, 14, 190, 50);
+            Elephant e = new Elephant(false, 12, 2.8, 50, 5000, 50);
             bool spiel = true;
-            int food = 0;
+            int animal_count = 3;
+
+            List<Animals> animals = new List<Animals>();
+            animals.Add(c);
+            animals.Add(l);
+            animals.Add(e);
 
             do
             {
-                Console.WriteLine("Es ist Essenszeit. Du hast 20 Rationen von Essen zu Vergeben.");
-                Console.WriteLine("Wie viel darf dein Krokodil essen?");
-                food = Convert.ToInt32(Console.ReadLine());
-                c.Eating(food);
+                foreach (Animals animal in animals)
+                {
+                    animal.Eating(animal_count, animals);
+                }
+
 
 
             } while (spiel);
