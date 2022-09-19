@@ -19,41 +19,21 @@ namespace Uebungen_C_sharp
     {
         static void Main(string[] args)
         {
-            Triangle d = new Triangle(2, 4, 10);
-            
-            Circle c = new Circle(5);
-          
-            Rectangle r = new Rectangle(10, 20);
-           
-            List<IGeometry> geometries = new List<IGeometry>();
-            geometries.Add(r);
-            geometries.Add(c);
-            geometries.Add(d);
+            Crocodile c = new Crocodile();
+            Lion l = new Lion();
+            Elephant e = new Elephant();
+            bool spiel = true;
+            int food = 0;
 
-            foreach (IGeometry g in geometries)
+            do
             {
-                Console.WriteLine($"Mein {g.GetType().Name} hat eine Fläche von {g.Flaeche()} " +
-                    $"und Umfang von {g.Umfang()}");
-                    
-            }
-            Vehicle ve = new Vehicle();
-
-            List<Vehicle> fahrzeuge = new List<Vehicle>();
-            fahrzeuge.Add(new Motorcycles(523, "BMW","GSXR 2000", "3.0", 3000, "Blau", 2));
-            fahrzeuge.Add(new Car(123, "VW", "Golf V", "2.0 TDI", 1900, "Rot", 4));
+                Console.WriteLine("Es ist Essenszeit. Du hast 20 Rationen von Essen zu Vergeben.");
+                Console.WriteLine("Wie viel darf dein Krokodil essen?");
+                food = Convert.ToInt32(Console.ReadLine());
+                c.Eating(food);
 
 
-            foreach (Vehicle v in fahrzeuge)
-            {
-                v.Starten();
-                v.beschleunigen();
-                v.beschleunigen();
-                v.bremsen();
-                v.Starten();
-                v.beschleunigen();
-                v.bremsen();
-                v.bremsen();
-            }
+            } while (spiel);
 
             Console.ReadKey();
         }

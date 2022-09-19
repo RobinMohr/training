@@ -6,20 +6,45 @@ using System.Threading.Tasks;
 
 namespace Uebungen_C_sharp
 {
-    public class Motorcycles :Vehicle
+    public class Lion :Animals
     {
-        public Motorcycles(int typeId, string make, string model, string typename, int ccm, string color, int tyres)
+        public Lion(bool furr, int age, double height, int life_span, int weight, int hunger)
+        {
+            Furr = furr;
+            Age = age;
+            Height = height;
+            Life_Span = life_span;
+            Weight = weight;
+            Hunger = hunger;
+        }
+        public Lion()
+        {
+            Furr = true;
+            Age = 4;
+            Height = 1.2;
+            Life_Span = 14;
+            Weight = 190;
+            Hunger = 50;
+        }
+        public void Eating()
         {
 
-            TypeId = typeId;
-            Make = make;
-            Model = model;
-            TypeName = typename;
-            CCM = ccm;
-            Color = color;
-            Tyres = tyres;
-            
         }
+        public void Drinking()
+        {
 
+        }
+        public void Dying()
+        {
+
+        }
+        public void Being_Annoying()
+        {
+
+        }
+        public void Getting_Born()
+        {
+
+        }
     }
 }

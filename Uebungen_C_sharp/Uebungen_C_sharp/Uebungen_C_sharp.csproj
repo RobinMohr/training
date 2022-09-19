@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="Car.cs" />
     <Compile Include="Circle.cs" />
+    <Compile Include="Crocodile.cs" />
     <Compile Include="Geometry.cs" />
     <Compile Include="Motorcycles.cs" />
     <Compile Include="Program.cs" />

@@ -9,58 +9,45 @@ using System.Threading.Tasks;
 
 namespace Uebungen_C_sharp
 {
-    public class Car :Vehicle
+    public class Elephant :Animals
     {
-        public Car(int typeId, string make, string model, string typeName, int cCM, string color, int tyres)
+        public Elephant(bool furr, int age, double height, int life_span, int weight, int hunger)
         {
-            TypeId = typeId;
-            Make = make;
-            Model = model;
-            TypeName = typeName;
-            CCM = cCM;
-            Color = color;
-            Tyres = tyres;
+            Furr = furr;
+            Age = age;
+            Height = height;
+            Life_Span = life_span;
+            Weight = weight;
+            Hunger = hunger;
         }
-
-        private Car()
+        public Elephant()
+        {
+            Furr = false;
+            Age = 12;
+            Height = 2.8;
+            Life_Span = 50;
+            Weight = 5000;
+            Hunger = 50;
+        }
+        public void Eating()
         {
 
         }
-        
-
-
-        public void PrintCarInformation()
+        public void Drinking()
         {
-            Console.WriteLine($"Mein Fahrzeug ist ein " +
-                $"{Make} {Model} {TypeName} mit einem Hubraum von " +
-                $"{CCM} in der Farbe {Color} mit {Tyres} Reifen");
+
         }
-
-
-
-        public static Car AskUserForCar()
+        public void Dying()
         {
-            Car c = new Car();
-            Console.WriteLine("Wie heißt die Marke?");
-            c.Make = Console.ReadLine();
-            Console.WriteLine("Gebe mri den Modelnamen");
-            c.Model = Console.ReadLine();
-            Console.WriteLine("Wie ist der Typ Name?");
-            c.TypeName = Console.ReadLine();
-            Console.WriteLine("TypeId?");
-            c.TypeId = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Farbe?");
-            c.Color = Console.ReadLine();
-            Console.WriteLine("Anzahl Reifen?");
-            c.Tyres = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Hubraum");
-            c.CCM = Convert.ToInt32(Console.ReadLine());
-            return c;
+
         }
+        public void Being_Annoying()
+        {
 
+        }
+        public void Getting_Born()
+        {
 
-
-
-
+        }
     }
 }
