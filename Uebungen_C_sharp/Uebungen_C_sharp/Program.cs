@@ -15,7 +15,6 @@ namespace Uebungen_C_sharp
         static void Main(string[] args)
         {
             int current = 10000;
-            int startwert = 10000;
             Random random = new Random();
             int einsatz = 10;
             int r = 0;
@@ -23,18 +22,76 @@ namespace Uebungen_C_sharp
 
             do
             {
-                Console.Clear();
+                //Console.Clear();
                 Console.WriteLine("Setzt du auf gerade(0) oder ungerade(1)?");
-                int guess = Convert.ToInt32(Console.ReadLine());
+                //int guess = Convert.ToInt32(Console.ReadLine());
+                int guess = 0;
                 int before = current;
-                int k = random.Next(0, 36);
+                int k = random.Next(0, 37);
 
 
 
                 switch (guess)
                 {
                     case 0:
-                        if (current < einsatz)
+                        if (current <= 0)
+                        {
+                            Console.Clear();
+                            Console.WriteLine("Du bist Pleite...");
+                            spiel = false;
+                            break;
+                        }
+                        else if (current > einsatz)
+                        {
+
+                            if ((k % 2 == 0) && k != 0)
+                            {
+                                Console.WriteLine("Du hast die Runde gewonnen:");
+                                current = current + einsatz;
+                                einsatz = einsatz * 2;
+
+                                if (current >= 10000)
+                                {
+                                    einsatz = 10;
+                                }
+                            }
+
+                            else if ((k % 2 != 0) && k != 0)
+                            {
+                                Console.WriteLine("Du hast die Runde verloren.");
+                                if (current >= 10000)
+                                {
+                                    current = current - einsatz - einsatz;
+                                    einsatz = einsatz * 2;
+                                }
+                                else if (current < 10000)
+                                {
+                                    current -= einsatz * 2;
+                                    einsatz = einsatz *2;
+                                }
+                            }
+                            else if (k == 0)
+                            {
+                                Console.WriteLine("Du hast weder gewonnen noch verloren.");
+                                break;
+                            }
+                            
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Du hast die Runde verloren");
+                            if (current > 10000)
+                            {
+                                current -= einsatz * 2;
+                                einsatz = einsatz * 2;
+                            }
+                            break;
+                        }
+                        break;
+
+                    case 1:
+                        if (current <= 0)
                         {
                             Console.Clear();
                             Console.WriteLine("Du bist Pleite...");
@@ -47,7 +104,7 @@ namespace Uebungen_C_sharp
                             if ((k % 2 != 0) && k != 0)
                             {
                                 Console.WriteLine("Du hast die Runde gewonnen:");
-                                current = current + einsatz * 2;
+                                current = current + einsatz;
                                 einsatz = einsatz * 2;
 
                                 if (current >= 10000)
@@ -64,69 +121,11 @@ namespace Uebungen_C_sharp
                                     current = current - einsatz * 2;
                                     einsatz = einsatz * 2;
                                 }
-                                else if (k < 10000)
+                                else if (current < 10000)
                                 {
-                                    int Gesamtverlust = startwert - current;
-                                    current = current - Gesamtverlust - Gesamtverlust;
-
-                                }
-                            }
-                            else if (k == 0)
-                            {
-                                Console.WriteLine("Du hast weder gewonnen noch verloren.");
-                                break;
-                            }
-                            
-                            break;
-                        }
-                        else
-                        {
-                            Console.WriteLine("Du hast die Runde verloren");
-                            if (k > 10000)
-                            {
-                                einsatz = einsatz * 2;
-                            }
-                            break;
-                        }
-                        break;
-
-                    case 1:
-                        if (current < einsatz)
-                        {
-                            Console.Clear();
-                            Console.WriteLine("Du bist Pleite...");
-                            spiel = false;
-                            break;
-                        }
-                        else if (current > einsatz)
-                        {
-
-                            if ((k % 2 == 0) && k != 0)
-                            {
-                                Console.WriteLine("Du hast die Runde gewonnen:");
-                                current = current + einsatz * 2;
-                                einsatz = einsatz * 2;
-
-                                if (current >= 10000)
-                                {
-                                    einsatz = 10;
-                                }
-                            }
-
-                            else if ((k % 2 != 0) && k != 0)
-                            {
-                                Console.WriteLine("Du hast die Runde verloren.");
-                                if (current >= 10000)
-                                {
-                                    current = current - einsatz * 2;
+                                    current -= einsatz * 2;
                                     einsatz = einsatz * 2;
                                 }
-                                else if (k < 10000)
-                                {
-                                    int Gesamtverlust = startwert - current;
-                                    current = current - Gesamtverlust - Gesamtverlust;
-
-                                }
                             }
                             else if (k == 0)
                             {
@@ -139,8 +138,9 @@ namespace Uebungen_C_sharp
                         else
                         {
                             Console.WriteLine("Du hast die Runde verloren");
-                            if (k > 10000)
+                            if (current > 10000)
                             {
+                                current -= einsatz * 2;
                                 einsatz = einsatz * 2;
                             }
                             break;
@@ -155,11 +155,40 @@ namespace Uebungen_C_sharp
 
                 r++;
 
-                Console.WriteLine($"du hattest letzte runde {before} dollar");
-                Console.WriteLine($"du hast jetzt {current} dollar");
-                Console.WriteLine($"du wirst nächste Runde {einsatz} dollar einsetzen");
-                Console.WriteLine($"du hast schon {r} Runden gespielt");
-                Console.ReadKey();
+                if (current > 0)
+                {
+                    if (current < einsatz)
+                    {
+                        Console.WriteLine($"möchtest du dein ganzes restliche geld({current}) einsetzen? (y) oder (n)");
+                        string resteinsatz = Console.ReadLine();
+
+                        if (resteinsatz == "y")
+                        {
+                            Console.WriteLine($"Du Wettest deine restlichen {current} dollar.");
+                            einsatz = current;
+                        }
+
+                        else if (resteinsatz == "n")
+                        {
+                            Console.WriteLine($"Du behältst deine {current} dollar und gehst nach Hause");
+                            spiel = false;
+                            break;
+                        }
+                        
+                    }
+                    Console.WriteLine($"du hattest letzte runde {before} dollar");
+                    Console.WriteLine($"du hast jetzt {current} dollar");
+                    Console.WriteLine($"du wirst nächste Runde {einsatz} dollar einsetzen");
+                    Console.WriteLine($"du hast schon {r} Runden gespielt");
+                    Console.WriteLine($"die zufällige Zahl war {k}");
+
+                }
+                
+
+                
+
+                
+                //Console.ReadKey();
 
             } while (spiel);
 
